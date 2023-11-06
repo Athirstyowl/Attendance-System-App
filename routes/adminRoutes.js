@@ -5,20 +5,20 @@ import {
   removeStudent,
   addTeacher,
   removeTeacher,
-} from '../controllers/AdminController';
+} from '../controllers/AdminController.js';
 
-const router = express.Router();
+const adminRoutes = express.Router();
 
 // Add a new student
-router.post('/admin/students', addStudent);
+adminRoutes.post('/admin/students', addStudent);
 
 // Remove a student by ID
-router.delete('/admin/students/:id', removeStudent);
+adminRoutes.delete('/admin/students/:id', removeStudent);
 
 // Add a new teacher
-router.post('/admin/teachers', addTeacher);
+adminRoutes.post('/admin/teachers', addTeacher);
 
 // Remove a teacher by ID
-router.delete('/admin/teachers/:id', removeTeacher);
+adminRoutes.delete('/admin/teachers/:id', removeTeacher);
 
-export default router;
+export default adminRoutes;

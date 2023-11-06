@@ -1,4 +1,4 @@
-import Lecture from '../models/Lecture';
+import Lecture from '../models/Lecture.js';
 
 // Controller functions for Lecture model
 

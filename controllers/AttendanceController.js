@@ -1,4 +1,4 @@
-import Attendance from '../models/Attendance';
+import Attendance from '../models/Attendance.js';
 
 // Controller functions for Attendance model
 

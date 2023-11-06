@@ -1,20 +1,17 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import teacherRoutes from './routes/teacherRoutes';
-import studentRoutes from './routes/studentRoutes';
-import lectureRoutes from './routes/lectureRoutes';
-import attendanceRoutes from './routes/attendanceRoutes';
-import adminRoutes from './routes/adminRoutes';
+import teacherRoutes from './routes/teacherRoutes.js';
+import studentRoutes from './routes/studentRoutes.js';
+import lectureRoutes from './routes/lectureRoutes.js';
+import attendanceRoutes from './routes/attendanceRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
 
 const app = express();
 const uri = "mongodb+srv://atharvagholap24:atharva04@cluster0.5zquozb.mongodb.net/?retryWrites=true&w=majority/";
 
 app.use(express.json());
 mongoose
-  .connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(uri, { })
   .then(() => {
     console.log('Connected to MongoDB Atlas');
 

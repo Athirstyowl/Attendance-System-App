@@ -6,23 +6,23 @@ import {
   createTeacher,
   updateTeacher,
   deleteTeacher,
-} from '../controllers/TeacherController';
+} from '../controllers/TeacherController.js';
 
-const router = express.Router();
+const teacherRoutes = express.Router();
 
 // Get all teachers
-router.get('/teachers', getAllTeachers);
+teacherRoutes.get('/teachers', getAllTeachers);
 
 // Get a single teacher by ID
-router.get('/teachers/:id', getTeacherById);
+teacherRoutes.get('/teachers/:id', getTeacherById);
 
 // Create a new teacher
-router.post('/teachers', createTeacher);
+teacherRoutes.post('/teachers', createTeacher);
 
 // Update a teacher by ID
-router.put('/teachers/:id', updateTeacher);
+teacherRoutes.put('/teachers/:id', updateTeacher);
 
 // Delete a teacher by ID
-router.delete('/teachers/:id', deleteTeacher);
+teacherRoutes.delete('/teachers/:id', deleteTeacher);
 
-export default router;
+export default teacherRoutes;

@@ -6,23 +6,23 @@ import {
   createLecture,
   updateLecture,
   deleteLecture,
-} from '../controllers/LectureController';
+} from '../controllers/LectureController.js';
 
-const router = express.Router();
+const lectureRoutes = express.Router();
 
 // Get all lectures
-router.get('/lectures', getAllLectures);
+lectureRoutes.get('/lectures', getAllLectures);
 
 // Get a single lecture by ID
-router.get('/lectures/:id', getLectureById);
+lectureRoutes.get('/lectures/:id', getLectureById);
 
 // Create a new lecture
-router.post('/lectures', createLecture);
+lectureRoutes.post('/lectures', createLecture);
 
 // Update a lecture by ID
-router.put('/lectures/:id', updateLecture);
+lectureRoutes.put('/lectures/:id', updateLecture);
 
 // Delete a lecture by ID
-router.delete('/lectures/:id', deleteLecture);
+lectureRoutes.delete('/lectures/:id', deleteLecture);
 
-export default router;
+export default lectureRoutes;
