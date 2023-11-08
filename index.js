@@ -7,7 +7,7 @@ import attendanceRoutes from './routes/attendanceRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 
 const app = express();
-const uri = "mongodb+srv://atharvagholap24:atharva04@cluster0.5zquozb.mongodb.net/?retryWrites=true&w=majority/";
+const uri = "mongodb+srv://atharvagholap24:atharva04@cluster0.5zquozb.mongodb.net/?retryWrites=true";
 
 app.use(express.json());
 mongoose

@@ -28,13 +28,18 @@ const teacherSchema = new mongoose.Schema({
          
           return v.length >= 5;
         },
-        message: (props) => `Password must be at least 5 characters long!`,
+        message: (props) => `${props.value} Password must be at least 5 characters long!`,
       },
       },
     contact: {
         type:Number,
         required:true,
-        length:10
+        validate: {
+          validator: function (v) {
+            return /^\d{10}$/.test(v.toString());
+          },
+          message: (props) => `${props.value} is not a valid 10 digit number`,
+        },
     },
     idNumber:{
         type:Number,

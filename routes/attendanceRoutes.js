@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-  getAllAttendance,
+  getAttendanceByLecture,
   getAttendanceByStudentId,
   createAttendance,
   updateAttendance,
@@ -9,7 +9,7 @@ import {
 
 const attendanceRoutes = express.Router();
 
-attendanceRoutes.get('/attendance', getAllAttendance);
+attendanceRoutes.get('/attendance/:lecture', getAttendanceByLecture);
 attendanceRoutes.get('/attendance/:studentId', getAttendanceByStudentId);
 attendanceRoutes.post('/attendance', createAttendance);
 attendanceRoutes.put('/attendance/:id', updateAttendance);
