@@ -5,6 +5,7 @@ import studentRoutes from './routes/studentRoutes.js';
 import lectureRoutes from './routes/lectureRoutes.js';
 import attendanceRoutes from './routes/attendanceRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const uri = "mongodb+srv://atharvagholap24:atharva04@cluster0.5zquozb.mongodb.net/?retryWrites=true";
@@ -22,6 +23,7 @@ mongoose
     app.use('/api', lectureRoutes);
     app.use('/api', attendanceRoutes);
     app.use('/api', adminRoutes);
+    app.use('/api/auth',authRoutes)
 
     app.listen(6000, () => {
       console.log('Listening on port 6000....');

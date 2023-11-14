@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import Student from "../models/Student";
-import Teacher from "../models/Teacher";
+import Student from "../models/Student.js";
+import Teacher from "../models/Teacher.js";
 
 const JWT_SECRET = "erastourkeliiyeexcited"
 
@@ -29,11 +29,11 @@ export const registerStudent = async(req,res) => {
         })
 
         const saveStudent =  await newStudent.save();
-        res.status(201).jaon(saveStudent);
+        res.status(201).json(saveStudent);
 
     }
     catch(error){
-        res.status(500).json({error:err.message});
+        res.status(500).json({error:error.message});
     }
 }
 
@@ -66,7 +66,7 @@ export const registerTeacher = async(req,res) => {
         res.status(201).json(saveTeacher);
     }
     catch(error){
-        res.status(500).json({error:err.message});
+        res.status(500).json({error:error.message});
     }
 }
 
@@ -87,8 +87,8 @@ export const loginStudent = async(req,res) => {
 
         res.status(200).json({token,student})
     }
-    catch(err){
-        res.status(500).json({error:err.message});
+    catch(error){
+        res.status(500).json({error:error.message});
     }
 }
 

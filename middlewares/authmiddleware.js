@@ -1,7 +1,7 @@
 // middlewares/authMiddleware.js
 import jwt from 'jsonwebtoken';
 
-const secretKey = 'erastourkeliiyeexcited'; // Replace with your actual secret key
+const JWT_SECRET = 'erastourkeliiyeexcited'; // Replace with your actual secret key
 
 export const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
@@ -11,7 +11,7 @@ export const authenticateToken = (req, res, next) => {
     return res.sendStatus(401);
   }
 
-  jwt.verify(token, secretKey, (err, user) => {
+  jwt.verify(token, JWT_SECRET, (err, user) => {
     if (err) {
       return res.sendStatus(403);
     }
@@ -32,7 +32,7 @@ export const verifyToken = async (req, res, next) => {
       token = token.slice(7, token.length).trimLeft();
     }
 
-    const verified = jwt.verify(token, process.env.JWT_SECRET);
+    const verified = jwt.verify(token, JWT_SECRET);
     req.user = verified;
     next();
   } catch (err) {
