@@ -5,20 +5,20 @@ import {
   removeStudent,
   addTeacher,
   removeTeacher,
-} from '../controllers/AdminController';
-
-const router = express.Router();
+} from '../controllers/AdminController.js';
+import {verifyToken} from '../middlewares/authMiddleware.js'
+const adminRoutes = express.Router();
 
 // Add a new student
-router.post('/admin/students', addStudent);
+adminRoutes.post('/admin/students',verifyToken, addStudent);
 
 // Remove a student by ID
-router.delete('/admin/students/:id', removeStudent);
+adminRoutes.delete('/admin/students/:id',verifyToken, removeStudent);
 
 // Add a new teacher
-router.post('/admin/teachers', addTeacher);
+adminRoutes.post('/admin/teachers',verifyToken, addTeacher);
 
 // Remove a teacher by ID
-router.delete('/admin/teachers/:id', removeTeacher);
+adminRoutes.delete('/admin/teachers/:id',verifyToken,removeTeacher);
 
-export default router;
+export default adminRoutes;

@@ -1,5 +1,5 @@
-import Teacher from '../models/Teacher';
-import Student from '../models/Student';
+import Teacher from '../models/Teacher.js';
+import Student from '../models/Student.js';
 
 // Controller functions for Admin
 

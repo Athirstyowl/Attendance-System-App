@@ -11,12 +11,16 @@ const lectureSchema = new mongoose.Schema({
     subject: {
         type:String
     },
-    date: Date,
+    date: { 
+        type: Date,
+        default: Date.now 
+    },
     qrcode: String,
     studentsAttended: [
         { 
             type: mongoose.Schema.Types.ObjectId, 
-            ref: 'Student' 
+            ref: 'Student',
+            unique:true
         }
     ] // Store the ObjectIds of attending student
 });

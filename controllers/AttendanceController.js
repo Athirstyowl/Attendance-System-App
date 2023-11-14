@@ -1,12 +1,13 @@
-import Attendance from '../models/Attendance';
+import Attendance from '../models/Attendance.js';
 
 // Controller functions for Attendance model
 
 // Get all attendance records
-export const getAllAttendance = async (req, res) => {
+export const getAttendanceByLecture = async (req, res) => {
   try {
-    const attendance = await Attendance.find();
+    const attendance = await Attendance.find({lecture: req.params.lecture});
     res.status(200).json(attendance);
+    console.log(attendance);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -15,12 +16,16 @@ export const getAllAttendance = async (req, res) => {
 // Get attendance records by student ID
 export const getAttendanceByStudentId = async (req, res) => {
   try {
-    const attendance = await Attendance.find({ student: req.params.studentId });
+    const studentId = req.params.studentId;
+    console.log('Querying for studentId:', studentId);
+    const attendance = await Attendance.find({ student: studentId });
     res.status(200).json(attendance);
   } catch (error) {
+    console.error('Error:', error);
     res.status(500).json({ message: error.message });
   }
 };
+
 
 // Create a new attendance record
 export const createAttendance = async (req, res) => {

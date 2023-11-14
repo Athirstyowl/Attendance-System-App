@@ -1,4 +1,4 @@
-import Student from '../models/Student';
+import Student from '../models/Student.js';
 
 // Controller functions for Student model
 

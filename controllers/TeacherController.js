@@ -1,4 +1,4 @@
-import Teacher from '../models/Teacher';
+import Teacher from '../models/Teacher.js';
 
 // Controller functions for Teacher model
 

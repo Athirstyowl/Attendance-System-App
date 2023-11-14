@@ -1,4 +1,4 @@
-import Lecture from '../models/Lecture';
+import Lecture from '../models/Lecture.js';
 
 // Controller functions for Lecture model
 
@@ -39,9 +39,15 @@ export const createLecture = async (req, res) => {
 // Update a lecture by ID
 export const updateLecture = async (req, res) => {
   try {
-    const lecture = await Lecture.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
+    const lecture = await Lecture.findByIdAndUpdate(
+      req.params.id,
+      {
+        $addToSet: { studentsAttended: { $each: req.body.studentsAttended } },
+      },
+      {
+        new: true,
+      }
+    );
     if (!lecture) {
       return res.status(404).json({ message: 'Lecture not found' });
     }

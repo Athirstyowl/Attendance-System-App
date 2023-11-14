@@ -6,23 +6,24 @@ import {
   createStudent,
   updateStudent,
   deleteStudent,
-} from '../controllers/StudentController';
+} from '../controllers/StudentController.js';
+import {verifyToken} from '../middlewares/authMiddleware.js';
 
-const router = express.Router();
+const studentRoutes = express.Router();
 
 // Get all students
-router.get('/students', getAllStudents);
+studentRoutes.get('/students',verifyToken, getAllStudents);
 
 // Get a single student by ID
-router.get('/students/:id', getStudentById);
+studentRoutes.get('/students/:id',verifyToken, getStudentById);
 
 // Create a new student
-router.post('/students', createStudent);
+studentRoutes.post('/students',verifyToken, createStudent);
 
 // Update a student by ID
-router.put('/students/:id', updateStudent);
+studentRoutes.put('/students/:id',verifyToken, updateStudent);
 
 // Delete a student by ID
-router.delete('/students/:id', deleteStudent);
+studentRoutes.delete('/students/:id',verifyToken, deleteStudent);
 
-export default router;
+export default studentRoutes;
